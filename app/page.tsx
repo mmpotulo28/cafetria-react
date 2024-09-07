@@ -2,6 +2,8 @@
 
 import React from 'react';
 import MenuSlider from './components/MenuSlider';
+import ItemsBlock from './components/ItemsBlock';
+import CategorySection from './components/CategorySection';
 
 export default function Home() {
 	return (
@@ -20,38 +22,14 @@ export default function Home() {
 
 			<section id='recommended'>
 				<h1 className='section-heading'>Recommended</h1>
-				<div className='items-block'></div>
+				<ItemsBlock
+					itemClassName='recommended-item'
+					filterByChoice='recommended'
+					filterByValue='true'
+				/>
 			</section>
 
-			<section id='categories'>
-				<h1 className='section-heading'>
-					<i className='fa fa-bars'></i> Menu
-				</h1>
-
-				<div className='content'>
-					<div className='category-block'>
-						<button className='category' data-category='All'>
-							All
-						</button>
-						<button className='category' data-category='Fast Food'>
-							Fast Food
-						</button>
-						<button className='category' data-category='Snacks'>
-							Snacks
-						</button>
-						<button className='category' data-category='Cold Drinks'>
-							Cold Drinks
-						</button>
-						<button className='category' data-category='Meals'>
-							Meals
-						</button>
-						<button className='category' data-category='Healthy'>
-							Healthy
-						</button>
-					</div>
-					<div className='items-block'></div>
-				</div>
-			</section>
+			<CategorySection />
 
 			{/* sponsors */}
 			<section id='sponsors'>

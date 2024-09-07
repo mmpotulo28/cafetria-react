@@ -19,3 +19,9 @@ export interface iCategory {
 	image: string;
 	items?: iItem[];
 }
+
+export interface iItemsBlockProps {
+	itemClassName?: string;
+	filterByChoice: string;
+	filterByValue: string;
+}

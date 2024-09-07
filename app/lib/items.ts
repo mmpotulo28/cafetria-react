@@ -3,7 +3,7 @@ import { iItem, iCategory } from './Types';
 const items: iItem[] = [
 	{
 		id: 1,
-		name: 'Vetkooks (Mince)',
+		name: 'Vetkoeks',
 		price: '22.00',
 		status: 'out-off-stock',
 		img: 'vetkook-mince.jpg',
@@ -79,7 +79,7 @@ const items: iItem[] = [
 	},
 	{
 		id: 6,
-		name: 'Vetkooks (Mince)',
+		name: 'Vetkoeks',
 		price: '21.00',
 		status: 'in-stock',
 		img: 'vetkook-mince.jpg',

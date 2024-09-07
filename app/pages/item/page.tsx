@@ -6,7 +6,7 @@ interface Props {
 	};
 }
 
-export default function ViewItem({ params }: Props) {
+export default function Page({ params }: Props) {
 	const { id } = params;
 
 	return (
