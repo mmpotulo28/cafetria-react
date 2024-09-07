@@ -47,9 +47,7 @@ const CategorySection: React.FC = () => {
 							data-category={category.name}
 							onClick={() => handleClick(category.data, index)}>
 							{category.data}
-							{activeButtons[index] === 1 && (
-								<i className='fas fa-circle-check'></i>
-							)}{' '}
+							{activeButtons[index] === 1 && <i className='fas fa-circle-check'></i>}
 						</button>
 					))}
 				</div>
