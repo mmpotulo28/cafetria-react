@@ -9,6 +9,23 @@ import Footer from './components/Footer';
 export const metadata: Metadata = {
 	title: 'Cafetria | Home',
 	description: 'Cafetria is a modern web app for ordering food online.',
+	authors: [{ name: 'Manelisi Mpotulo' }],
+	// more metadata
+	category: 'food',
+	creator: 'Manelisi Mpotulo',
+	publisher: 'Manelisi Mpotulo',
+	icons: [
+		{
+			url: 'images/logo.png',
+			sizes: '16x16',
+			type: 'image/png',
+		},
+		{
+			url: 'images/logo.png',
+			sizes: '32x32',
+			type: 'image/png',
+		},
+	],
 };
 
 export default function RootLayout({

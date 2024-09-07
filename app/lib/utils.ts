@@ -16,3 +16,7 @@ export const filterByRecommended = (recommended: string, items: iItem[]) => {
 	const recommendedBool = recommended === 'true';
 	return items.filter((item) => item.recommended === recommendedBool);
 };
+
+export const filterById = (id: number, items: iItem[]) => {
+	return items.filter((item) => item.id == id);
+};
