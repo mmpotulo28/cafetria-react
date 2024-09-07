@@ -411,9 +411,20 @@ const items: iItem[] = [
 ];
 
 const categories: iCategory[] = [
-	{ name: 'Cakes', image: 'muffins.png' },
-	{ name: 'Cold Drinks', image: 'red-bull.png' },
-	{ name: 'Fast Food', image: 'pies.png' },
+	{ name: 'all', data: 'All', image: 'appletiser.webp' },
+	{ name: 'fast-food', data: 'Fast Food', image: 'pies.png' },
+	{ name: 'snacks', data: 'Snacks', image: 'muffins.png' },
+	{ name: 'cold-drinks', data: 'Cold Drinks', image: 'red-bull.png' },
+	{ name: 'meals', data: 'Meals', image: 'pap-meal.jpg' },
+	{ name: 'healthy', data: 'Healthy', image: 'spinach-smoothie.jpeg' },
 ];
 
-export { items, categories };
+const sponsors = [
+	{ name: 'CPUT', image: '/images/cput-logo.png' },
+	{ name: 'Nedbank', image: '/images/nedbank-log.png' },
+	{ name: 'Varsity Vibe', image: '/images/varsityvibe-log.png' },
+	{ name: 'Mastercard', image: '/images/mastercard-logo.png' },
+	{ name: 'Score', image: '/images/score-logo.png' },
+];
+
+export { items, categories, sponsors };

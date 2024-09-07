@@ -1,6 +1,6 @@
 import React from 'react';
 import DomItem from './DomItem';
-import { items } from '../lib/items';
+import { items } from '../lib/data';
 import { iItem, iItemsBlockProps } from '../lib/Types';
 import { filterByCategory, filterByRecommended, filterByStatus } from '../lib/utils';
 

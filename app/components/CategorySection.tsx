@@ -1,5 +1,7 @@
 import React from 'react';
 import ItemsBlock from './ItemsBlock';
+import { categories } from '../lib/data';
+import { iCategory } from '../lib/Types';
 
 const CategorySection: React.FC = () => {
 	const [category, setCategory] = React.useState('All');
@@ -10,7 +12,7 @@ const CategorySection: React.FC = () => {
 	const [activeButtons, setActiveButton] = React.useState(activeButton);
 
 	const handleClick = React.useCallback(
-		(category: string, index: number) => {
+		(category: string | undefined, index: number) => {
 			const active = { ...activeButton };
 			for (const key in active) {
 				active[key] = 0;
@@ -18,19 +20,10 @@ const CategorySection: React.FC = () => {
 			active[index] = 1;
 
 			setActiveButton(active);
-			setCategory(category);
+			setCategory(category || 'All');
 		},
 		[activeButton],
 	);
-
-	const categoryButtons = [
-		{ name: 'all', data: 'All' },
-		{ name: 'fast-food', data: 'Fast Food' },
-		{ name: 'snacks', data: 'Snacks' },
-		{ name: 'cold-drinks', data: 'Cold Drinks' },
-		{ name: 'meals', data: 'Meals' },
-		{ name: 'healthy', data: 'Healthy' },
-	];
 
 	return (
 		<section id='categories'>
@@ -40,7 +33,7 @@ const CategorySection: React.FC = () => {
 
 			<div className='content'>
 				<div className='category-block'>
-					{categoryButtons.map((category, index) => (
+					{categories.map((category: iCategory, index: number) => (
 						<button
 							key={index}
 							className='category'

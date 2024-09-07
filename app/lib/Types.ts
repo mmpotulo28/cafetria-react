@@ -17,6 +17,7 @@ export interface iItem {
 export interface iCategory {
 	name: string;
 	image: string;
+	data?: string;
 	items?: iItem[];
 }
 

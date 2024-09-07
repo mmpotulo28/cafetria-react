@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { iCategory, iItem } from '../lib/Types';
-import { categories, items } from '../lib/items';
+import { categories, items } from '../lib/data';
 
 interface iSlide {
 	category: iCategory;
@@ -40,49 +40,57 @@ const MenuSlider = () => {
 		fetchData();
 	}, []);
 
-	// change slide index
-	// const changeSlide = (dir: number) => {};
-
 	if (slides.length == 0) {
 		return <div>Loading...</div>;
 	}
 
 	return (
-		<div id='menu-slider'>
-			{slides.map((slide: iSlide, index: number) => (
-				<div key={index} className='slider-content'>
-					<div className='left'>
-						<div className='img-cont'>
-							<div className='img-block'>
-								<Image
-									className='grow'
-									src={`/images/${slide.category.image}`}
-									alt=''
-									width={400}
-									height={400}
-								/>
+		<section id='slide-menu'>
+			<div id='menu-slider'>
+				{slides.map((slide: iSlide, index: number) => (
+					<div key={index} className='slider-content'>
+						<div className='left'>
+							<div className='img-cont'>
+								<div className='img-block'>
+									<Image
+										className='grow'
+										src={`/images/${slide.category.image}`}
+										alt=''
+										width={400}
+										height={400}
+									/>
+								</div>
 							</div>
 						</div>
+						<div className='right slide-in'>
+							<h1>{slide.category.name}</h1>
+							<ul className='snack-list'>
+								{slide.items.map((item: iItem, index: number) => (
+									<li key={index}>
+										<span>{item.name}</span>
+										<span>R{item.price}</span>
+									</li>
+								))}
+							</ul>
+						</div>
 					</div>
-					<div className='right slide-in'>
-						<h1>{slide.category.name}</h1>
-						<ul className='snack-list'>
-							{slide.items.map((item: iItem, index: number) => (
-								<li key={index}>
-									<span>{item.name}</span>
-									<span>R{item.price}</span>
-								</li>
-							))}
-						</ul>
-					</div>
-				</div>
-			))}
-		</div>
+				))}
+			</div>
+
+			<div className='slider-btns-block'>
+				<button className='slider-btn' id='slider-btn-left'>
+					&lt;
+				</button>
+				<button className='slider-btn' id='slider-btn-right'>
+					&gt;
+				</button>
+			</div>
+		</section>
 	);
 };
 
 const fetchCategories = async (): Promise<iCategory[]> => {
-	return categories;
+	return categories.filter((category) => category.name !== 'all');
 };
 
 const fetchItems = async (): Promise<iItem[]> => {
