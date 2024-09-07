@@ -1,61 +1,62 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { iCategory, iItem } from '../lib/Types';
+import { iCategory, iItem, iSlide } from '../lib/Types';
 import { categories, items } from '../lib/data';
-
-interface iSlide {
-	category: iCategory;
-	items: iItem[];
-}
+import useEmblaCarousel from 'embla-carousel-react';
 
 const MenuSlider = () => {
 	const [slides, setSlides] = useState<iSlide[]>([]);
-	// const [slideIndex, setSlideIndex] = useState(0);
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
 	useEffect(() => {
-		const slide: iSlide = {
-			category: { name: '', image: '' },
-			items: [],
-		};
-		const slides: iSlide[] = [];
-
 		const fetchData = async () => {
 			const categories = await fetchCategories();
 			const items = await fetchItems();
 
-			console.log(categories);
-
-			categories.forEach(async (category: iCategory) => {
+			const newSlides: iSlide[] = categories.map((category: iCategory) => {
 				const categoryItems = items
-					.filter((item) => item.category === category.name)
+					.filter((item) => item.category === category.data)
 					.slice(0, 5);
-				slide.category = category;
-				slide.items = categoryItems;
-				slides.push(slide);
+
+				console.log(category.name, categoryItems);
+
+				return {
+					category,
+					items: categoryItems,
+				};
 			});
 
-			setSlides(slides);
+			setSlides(newSlides);
 		};
 
 		fetchData();
 	}, []);
+
+	// move slider
+	const scrollPrev = useCallback(() => {
+		if (emblaApi) emblaApi.scrollPrev();
+	}, [emblaApi]);
+
+	const scrollNext = useCallback(() => {
+		if (emblaApi) emblaApi.scrollNext();
+	}, [emblaApi]);
 
 	if (slides.length == 0) {
 		return <div>Loading...</div>;
 	}
 
 	return (
-		<section id='slide-menu'>
-			<div id='menu-slider'>
+		<section id='slide-menu' className='embla' ref={emblaRef}>
+			<div id='menu-slider' className='embla__container'>
 				{slides.map((slide: iSlide, index: number) => (
-					<div key={index} className='slider-content'>
+					<div key={index} className='slider-content embla__slide'>
 						<div className='left'>
 							<div className='img-cont'>
 								<div className='img-block'>
 									<Image
 										className='grow'
 										src={`/images/${slide.category.image}`}
-										alt=''
+										alt='slide image'
 										width={400}
 										height={400}
 									/>
@@ -78,10 +79,10 @@ const MenuSlider = () => {
 			</div>
 
 			<div className='slider-btns-block'>
-				<button className='slider-btn' id='slider-btn-left'>
+				<button className='slider-btn' id='slider-btn-left' onClick={scrollPrev}>
 					&lt;
 				</button>
-				<button className='slider-btn' id='slider-btn-right'>
+				<button className='slider-btn' id='slider-btn-right' onClick={scrollNext}>
 					&gt;
 				</button>
 			</div>
@@ -94,7 +95,7 @@ const fetchCategories = async (): Promise<iCategory[]> => {
 };
 
 const fetchItems = async (): Promise<iItem[]> => {
-	return items;
+	return items.sort(() => Math.random() - 0.5);
 };
 
 export default MenuSlider;

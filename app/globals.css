@@ -500,6 +500,25 @@ main {
 	background-image: url('/images/menu-back.png');
 }
 
+.embla {
+	overflow: hidden !important;
+}
+
+.embla__container {
+	display: flex;
+}
+
+.embla__slide {
+	position: relative;
+	min-width: 100%;
+}
+
+.slider-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 #menu-slider {
 	display: flex;
 	position: relative;
@@ -510,9 +529,7 @@ main {
 	max-inline-size: 100%;
 	min-height: 81vh;
 	inline-size: fit-content;
-	overflow-y: hidden;
-	overflow-x: auto;
-	scroll-behavior: smooth;
+
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -677,7 +694,6 @@ main {
 	align-items: center;
 	gap: 30px;
 	flex-wrap: nowrap;
-	overflow-x: auto;
 	padding-inline: 40px;
 }
 

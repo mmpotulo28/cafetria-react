@@ -41,7 +41,7 @@ const DomItem: React.FC<iDomItemProps> = ({
 
 				<div className='buttons'>
 					<span className='price-btn'>R{item.price}</span>
-					<Link href={`/pages/item?id=${item.id}`}>
+					<Link href={`/pages/item/${item.id}`}>
 						<button disabled={disabled} className={`add-to-cart-btn ${btnClass}`}>
 							Add to cart
 						</button>

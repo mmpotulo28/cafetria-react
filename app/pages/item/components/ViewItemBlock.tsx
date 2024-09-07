@@ -1,15 +1,10 @@
 import { iItem } from '@/app/lib/Types';
 import React from 'react';
-
-interface ViewItemBlockProps {
-	item: iItem;
-	btnClass: string;
-	statusClass: string;
-}
+import { ViewItemBlockProps } from '../types/types';
 
 const ViewItemBlock: React.FC<ViewItemBlockProps> = ({ item, btnClass, statusClass }) => {
 	const renderStatusIcon = () => {
-		return item.status === 'out-off-stock' ? (
+		return item?.status === 'out-off-stock' ? (
 			<i className='fas fa-times-circle'></i>
 		) : (
 			<i className='fas fa-check-circle'></i>
@@ -17,11 +12,11 @@ const ViewItemBlock: React.FC<ViewItemBlockProps> = ({ item, btnClass, statusCla
 	};
 
 	const renderStatusText = () => {
-		return item.status === 'out-off-stock' ? 'Out-of-stock' : 'In stock';
+		return item?.status === 'out-off-stock' ? 'Out-of-stock' : 'In stock';
 	};
 
 	const renderOptions = () => {
-		return item.options.opt.map((value: string) => (
+		return item?.options.opt.map((value: string) => (
 			<option key={value} value={value}>
 				{value}
 			</option>
@@ -31,7 +26,7 @@ const ViewItemBlock: React.FC<ViewItemBlockProps> = ({ item, btnClass, statusCla
 	return (
 		<div className='view-item'>
 			<div className='top-block'>
-				<h2 className='item-name'>{item.name}</h2>
+				<h2 className='item-name'>{item?.name}</h2>
 				<p className={`item-status ${statusClass}`}>
 					{renderStatusIcon()}
 					{renderStatusText()}
@@ -40,18 +35,18 @@ const ViewItemBlock: React.FC<ViewItemBlockProps> = ({ item, btnClass, statusCla
 
 			<div className='main-block'>
 				<div className='img-block'>
-					<img src={`/assets/img/${item.img}`} alt='' />
+					<img src={`/images/${item?.img}`} alt='' />
 				</div>
 
 				<div className='item-description'>
 					<h3>Description:</h3>
-					<p>{item.description}</p>
+					<p>{item?.description}</p>
 				</div>
 
 				<div className='item-config'>
 					<form key='item-config-form'>
 						<div className='form-group'>
-							<label htmlFor='sauce'>{item.options.name}: </label>
+							<label htmlFor='sauce'>{item?.options.name}: </label>
 							<select className='form-input' name='sauce' key='sauce'>
 								{renderOptions()}
 							</select>
@@ -81,7 +76,7 @@ const ViewItemBlock: React.FC<ViewItemBlockProps> = ({ item, btnClass, statusCla
 
 						<div className='form-group'>
 							<label htmlFor='total'>Total: </label>
-							<p key='total'>R{item.price}</p>
+							<p key='total'>R{item?.price}</p>
 						</div>
 
 						<div className='form-group'>

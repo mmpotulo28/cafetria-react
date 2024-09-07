@@ -1,23 +1,21 @@
 'use client';
 
-import React from 'react';
-import '@/app/css/pages.css';
-import ItemsBlock from '@/app/components/ItemsBlock';
-import ViewItemBlock from './components/ViewItemBlock';
 import { filterById } from '@/app/lib/utils';
 import { items } from '@/app/lib/data';
 import { iItem } from '@/app/lib/Types';
+import React from 'react';
+import ViewItemBlock from '../components/ViewItemBlock';
+import '@/app/css/pages.css';
+import ItemsBlock from '@/app/components/ItemsBlock';
 
 interface Props {
 	params: {
-		id: string;
+		itemId: string;
 	};
 }
 
-export default function Page({ params }: Props) {
-	const { id } = params;
-	console.log('id: ', id);
-	const item: iItem[] = filterById(Number(2), items);
+const Page: React.FC<Props> = ({ params }) => {
+	const item: iItem[] = filterById(Number(params.itemId), items);
 
 	return (
 		<>
@@ -38,8 +36,17 @@ export default function Page({ params }: Props) {
 						</button>
 					</div>
 				</div>
-				<ItemsBlock filterByChoice='category' filterByValue={'Fast Food'} />
+
+				<ItemsBlock
+					itemClassName='similar-items'
+					filterByChoice='category'
+					filterByValue={item[0]?.category}
+					leftButton={document.getElementById('prev')}
+					rightButton={document.getElementById('next')}
+				/>
 			</section>
 		</>
 	);
-}
+};
+
+export default Page;

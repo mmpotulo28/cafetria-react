@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Updates from './Updates';
 
 const Header: React.FC = () => {
 	return (
@@ -88,9 +89,7 @@ const Header: React.FC = () => {
 				<span id='nav-line'></span>
 			</nav>
 
-			<div id='updates'>
-				<div className='update-cont'></div>
-			</div>
+			<Updates />
 		</header>
 	);
 };

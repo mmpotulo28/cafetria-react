@@ -2,7 +2,7 @@ import { iItem, iCategory } from './Types';
 
 const items: iItem[] = [
 	{
-		id: 1,
+		id: 1001,
 		name: 'Vetkoeks',
 		price: '22.00',
 		status: 'out-off-stock',
@@ -18,7 +18,7 @@ const items: iItem[] = [
 	},
 
 	{
-		id: 2,
+		id: 1002,
 		name: 'Large Fries',
 		price: '35.00',
 		status: 'in-stock',
@@ -33,7 +33,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 3,
+		id: 1003,
 		name: 'Large Gatsby',
 		price: '50.00',
 		status: 'in-stock',
@@ -48,7 +48,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 4,
+		id: 1004,
 		name: 'Chip Roll',
 		price: '26.00',
 		status: 'out-off-stock',
@@ -63,7 +63,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 5,
+		id: 1005,
 		name: 'Score Can',
 		price: '11.00',
 		status: 'in-stock',
@@ -78,7 +78,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 6,
+		id: 1006,
 		name: 'Vetkoeks',
 		price: '21.00',
 		status: 'in-stock',
@@ -93,7 +93,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 7,
+		id: 1007,
 		name: 'Plain Vetkooks',
 		price: '7.00',
 		status: 'out-off-stock',
@@ -108,7 +108,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 8,
+		id: 1008,
 		name: 'Yoghurt',
 		price: '15.00',
 		status: 'in-stock',
@@ -123,11 +123,11 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 9,
+		id: 1009,
 		name: 'Spinach Smoothie',
 		price: '30.00',
 		status: 'in-stock',
-		img: 'spinach-smoothie.jpeg',
+		img: 'spinach-smoothie.png',
 		recommended: false,
 		category: 'Healthy',
 		description:
@@ -138,11 +138,11 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 10,
+		id: 1010,
 		name: 'Pap Meal',
 		price: '60.00',
 		status: 'in-stock',
-		img: 'pap-meal.jpg',
+		img: 'pap-meal.png',
 		recommended: true,
 		category: 'Meals',
 		description:
@@ -153,7 +153,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 11,
+		id: 1011,
 		name: 'Chicken Burger',
 		price: '45.00',
 		status: 'in-stock',
@@ -168,7 +168,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 12,
+		id: 1012,
 		name: 'Cheese Pizza',
 		price: '55.00',
 		status: 'in-stock',
@@ -183,7 +183,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 13,
+		id: 1013,
 		name: 'Ice Cream',
 		price: '25.00',
 		status: 'in-stock',
@@ -198,7 +198,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 14,
+		id: 1014,
 		name: 'Chocolate Cake',
 		price: '35.00',
 		status: 'in-stock',
@@ -213,7 +213,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 15,
+		id: 1015,
 		name: 'Cupcakes',
 		price: '15.00',
 		status: 'in-stock',
@@ -228,7 +228,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 16,
+		id: 1016,
 		name: 'Muffins',
 		price: '20.00',
 		status: 'in-stock',
@@ -243,7 +243,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 17,
+		id: 1017,
 		name: 'Pies',
 		price: '25.00',
 		status: 'in-stock',
@@ -258,7 +258,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 18,
+		id: 1018,
 		name: 'Scones',
 		price: '15.00',
 		status: 'in-stock',
@@ -274,7 +274,7 @@ const items: iItem[] = [
 	},
 	// cans
 	{
-		id: 19,
+		id: 1019,
 		name: 'Coca-Cola Can',
 		price: '15.00',
 		status: 'in-stock',
@@ -289,7 +289,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 20,
+		id: 1020,
 		name: 'Fanta Can',
 		price: '15.00',
 		status: 'in-stock',
@@ -304,7 +304,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 21,
+		id: 1021,
 		name: 'Sprite Can',
 		price: '15.00',
 		status: 'in-stock',
@@ -319,7 +319,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 22,
+		id: 1022,
 		name: 'Stoney Can',
 		price: '15.00',
 		status: 'in-stock',
@@ -334,7 +334,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 23,
+		id: 1023,
 		name: 'Pepsi',
 		price: '15.00',
 		status: 'in-stock',
@@ -349,7 +349,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 24,
+		id: 1024,
 		name: 'Mirinda',
 		price: '15.00',
 		status: 'in-stock',
@@ -364,7 +364,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 25,
+		id: 1025,
 		name: 'Appletiser',
 		price: '15.00',
 		status: 'in-stock',
@@ -379,7 +379,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 26,
+		id: 1026,
 		name: 'Red Bull',
 		price: '15.00',
 		status: 'in-stock',
@@ -394,7 +394,7 @@ const items: iItem[] = [
 		},
 	},
 	{
-		id: 27,
+		id: 1027,
 		name: 'Monster Can',
 		price: '15.00',
 		status: 'in-stock',
@@ -415,16 +415,16 @@ const categories: iCategory[] = [
 	{ name: 'fast-food', data: 'Fast Food', image: 'pies.png' },
 	{ name: 'snacks', data: 'Snacks', image: 'muffins.png' },
 	{ name: 'cold-drinks', data: 'Cold Drinks', image: 'red-bull.png' },
-	{ name: 'meals', data: 'Meals', image: 'pap-meal.jpg' },
-	{ name: 'healthy', data: 'Healthy', image: 'spinach-smoothie.jpeg' },
+	{ name: 'meals', data: 'Meals', image: 'pap-meal.png' },
+	// { name: 'healthy', data: 'Healthy', image: 'spinach-smoothie.png' },
 ];
 
 const sponsors = [
-	{ name: 'CPUT', image: '/images/cput-logo.png' },
-	{ name: 'Nedbank', image: '/images/nedbank-log.png' },
-	{ name: 'Varsity Vibe', image: '/images/varsityvibe-log.png' },
-	{ name: 'Mastercard', image: '/images/mastercard-logo.png' },
-	{ name: 'Score', image: '/images/score-logo.png' },
+	{ name: 'CPUT', image: 'cput-logo.png' },
+	{ name: 'Nedbank', image: 'nedbank-log.png' },
+	{ name: 'Varsity Vibe', image: 'varsityvibe-log.png' },
+	{ name: 'Mastercard', image: 'mastercard-logo.png' },
+	{ name: 'Score', image: 'score-logo.png' },
 ];
 
 export { items, categories, sponsors };

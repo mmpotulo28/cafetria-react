@@ -25,4 +25,11 @@ export interface iItemsBlockProps {
 	itemClassName?: string;
 	filterByChoice: string;
 	filterByValue: string;
+	leftButton?: HTMLElement | null;
+	rightButton?: HTMLElement | null;
+}
+
+export interface iSlide {
+	category: iCategory;
+	items: iItem[];
 }
