@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 import './globals.css';
 import './css/fontawesome-6.5.2/css/all.css';
@@ -36,6 +38,8 @@ export default function RootLayout({
 				<Header />
 				{children}
 				<Footer />
+				<SpeedInsights />
+				<Analytics />
 			</body>
 		</html>
 	);
