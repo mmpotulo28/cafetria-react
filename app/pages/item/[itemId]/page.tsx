@@ -3,10 +3,10 @@
 import { filterById } from '@/app/lib/utils';
 import { items } from '@/app/lib/data';
 import { iItem } from '@/app/lib/Types';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ViewItemBlock from '../components/ViewItemBlock';
 import '@/app/css/pages.css';
-import ItemsBlock from '@/app/components/ItemsBlock';
+import ItemsBlock, { scrollNext, scrollPrev } from '@/app/components/ItemsBlock';
 
 interface Props {
 	params: {
@@ -16,6 +16,18 @@ interface Props {
 
 const Page: React.FC<Props> = ({ params }) => {
 	const item: iItem[] = filterById(Number(params.itemId), items);
+
+	const leftButton: ReactElement = (
+		<button className='similar-btn' id='prev' onClick={scrollPrev}>
+			<i className='fa fa-chevron-left'></i>
+		</button>
+	);
+
+	const rightButton: ReactElement = (
+		<button className='similar-btn' id='next' onClick={scrollNext}>
+			<i className='fa fa-chevron-right'></i>
+		</button>
+	);
 
 	return (
 		<>
@@ -28,12 +40,8 @@ const Page: React.FC<Props> = ({ params }) => {
 						<i className='fa fa-tags'></i> Similar Items
 					</h1>
 					<div className='btns-block'>
-						<button className='similar-btn' id='prev'>
-							<i className='fa fa-chevron-left'></i>
-						</button>
-						<button className='similar-btn' id='next'>
-							<i className='fa fa-chevron-right'></i>
-						</button>
+						{leftButton}
+						{rightButton}
 					</div>
 				</div>
 
@@ -41,8 +49,6 @@ const Page: React.FC<Props> = ({ params }) => {
 					itemClassName='similar-items'
 					filterByChoice='category'
 					filterByValue={item[0]?.category}
-					leftButton={document.getElementById('prev')}
-					rightButton={document.getElementById('next')}
 				/>
 			</section>
 		</>

@@ -6,14 +6,10 @@ import { items } from '../lib/data';
 import { iItem, iItemsBlockProps } from '../lib/Types';
 import { filterByCategory, filterByRecommended, filterByStatus } from '../lib/utils';
 import useEmblaCarousel from 'embla-carousel-react';
+export let scrollPrev: () => void;
+export let scrollNext: () => void;
 
-const ItemsBlock = ({
-	itemClassName,
-	filterByChoice,
-	filterByValue,
-	leftButton,
-	rightButton,
-}: iItemsBlockProps) => {
+const ItemsBlock = ({ itemClassName, filterByChoice, filterByValue }: iItemsBlockProps) => {
 	const [emblaRef, emblaApi] = useEmblaCarousel({
 		loop: false,
 		containScroll: 'trimSnaps',
@@ -21,16 +17,13 @@ const ItemsBlock = ({
 		watchFocus: true,
 	});
 
-	const scrollPrev = useCallback(() => {
+	scrollPrev = useCallback(() => {
 		if (emblaApi) emblaApi.scrollPrev();
 	}, [emblaApi]);
 
-	const scrollNext = useCallback(() => {
+	scrollNext = useCallback(() => {
 		if (emblaApi) emblaApi.scrollNext();
 	}, [emblaApi]);
-
-	leftButton?.addEventListener('click', scrollPrev);
-	rightButton?.addEventListener('click', scrollNext);
 
 	let btnClass = '';
 	let statusClass = '';
